@@ -1,0 +1,78 @@
+@import ../../global/styles/style-variables
+
+.c-menu-bar
+  position: fixed
+  height: $box-height
+  width: size($menu-bar-width)
+  right: size($layout-padding)
+  @include themed()
+    background-color: color($primary-light)
+  transition: .55s ease-in-out
+  overflow: hidden
+  box-shadow: 0 3px 8px 0 rgb(15 15 20 / 20%)
+  &--open
+    width: size($menu-bar-open-width)
+  &--open &__route-name-holder
+    opacity: 0
+    transition: 0.55s ease-in-out
+  &--open &__menu
+    li
+      transform: translateX(0)
+      transition: .55s ease-in-out
+      transition-delay: 0.05s
+  &_switch-holder
+    position: absolute
+    bottom: size(10, 12)
+    text-align: center
+    width: 100%
+    &__text
+      @include themed()
+        color: color($neutral-50)
+      @include font-content(12)
+  &__icon-holder
+    @include themed()
+      background-color: color($primary-lighter)
+    height: size(70)
+    display: flex
+    align-items: center
+    justify-content: center
+    .fa
+      @include themed()
+        color: color($neutral-50)
+      font-size: font-calc(20)
+      cursor: pointer
+      &:hover
+        @include themed()
+          color: color($neutral-95)
+  &__route-name-holder
+    @include themed()
+      color: color($neutral-80)
+    text-transform: uppercase
+    letter-spacing: size(5)
+    position: relative
+    @include font-content(16, 24, 700)
+    opacity: 1
+    transition: 0.55s ease-in-out
+  &__route-name
+    position: absolute
+    transform: translateX(-50%) rotate(90deg)
+    top: size(50)
+    left: 50%
+  &__menu
+    list-style: none
+    padding: 0
+    text-align: center
+    li
+      transition: .55s ease-in-out
+      transform: translateX(#{size(100)})
+      margin-bottom: size(20)
+      @include font-content(16, 24, 700)
+      letter-spacing: size(2)
+      text-transform: uppercase
+      a
+        @include themed()
+          color: color($neutral-80)
+        text-decoration: none
+        &:hover
+          @include themed()
+            color: color($secondary)

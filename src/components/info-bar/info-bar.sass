@@ -1,0 +1,12 @@
+@import ../../global/styles/style-variables
+
+.c-info-bar
+  position: fixed
+  width: size($info-bar-width)
+  min-width: size($info-bar-width)
+  height: $box-height
+  transition: .55s ease-in-out
+  @include themed()
+    background-color: color($primary-light)
+  box-shadow: 0 3px 8px 0 rgb(15 15 20 / 20%)
+  z-index: 999

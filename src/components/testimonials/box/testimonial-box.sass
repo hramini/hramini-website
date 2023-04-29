@@ -1,0 +1,40 @@
+@import ../../../global/styles/style-variables
+
+.testimonial-box
+  position: relative
+  @include themed()
+    background-color: color($primary-lighter)
+  padding: size(15)
+  box-sizing: border-box
+  height: 100%
+  h3
+    margin: 0
+  p
+    margin-top: 0
+    &:last-child
+      margin-bottom: 0
+  span
+    font-weight: 700
+    @include themed()
+      color: color($neutral-white)
+  &_title
+    text-decoration: none
+    @include themed()
+      color: color($neutral-white)
+    @include font-title(14)
+  &_image
+    position: absolute
+    width: size(70)
+    height: size(70)
+    border-radius: 50%
+    right: size(35)
+    top: size(-35)
+  &_job
+    @include themed()
+      color: color($neutral-80)
+    @include font-content(13)
+  &_content
+    @include themed()
+      color: color($neutral-80)
+    text-align: justify
+    @include font-content(13)

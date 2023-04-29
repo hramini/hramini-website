@@ -1,0 +1,66 @@
+@import ../../../global/styles/style-variables
+
+.c-post-box
+  @include themed()
+    background-color: color($primary-lighter)
+  box-sizing: border-box
+  p
+    margin-top: 0
+    &:last-child
+      margin-bottom: 0
+  span
+    font-weight: 700
+    @include themed()
+      color: color($neutral-white)
+  &_image-holder
+    position: relative
+  &_image
+    width: 100%
+  &_date
+    position: absolute
+    z-index: 1
+    @include themed()
+      background-color: color($primary-lighter-alpha)
+    width: size(100)
+    text-align: center
+    border-radius: size(10)
+    bottom: size(15)
+    right: size(15)
+    @include themed()
+      color: color($neutral-white)
+    @include font-content(12)
+  &_content-holder
+    padding: size(15)
+  &_title
+    text-decoration: none
+    @include themed()
+      color: color($neutral-95)
+    height: size(24)
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+    margin:
+      top: 0
+      bottom: size(10)
+    @include font-title(14)
+    &--hoverable:hover
+      text-decoration: underline
+  &_content
+    @include themed()
+      color: color($neutral-80)
+    height: size(72, 14)
+    overflow: hidden
+    text-align: justify
+    @include font-content(14)
+    .more-link
+      display: none
+  &_link-holder
+    text-align: end
+  &_link
+    text-decoration: none
+    @include themed()
+      color: color($secondary)
+    @include font-content(14)
+    &:hover
+      @include themed()
+        color: color($neutral-95)

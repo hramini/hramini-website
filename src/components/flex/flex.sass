@@ -1,0 +1,35 @@
+@import ../../global/styles/style-variables
+
+.flex
+  box-sizing: border-box
+
+@mixin flexDisplay($size)
+  @if ($size == 0)
+    display: none
+  @else
+    display: inline-block
+
+@mixin flexMaker($size, $screenSize)
+  .flex-#{$screenSize}-#{$size}
+    width: $size * 1%
+    height: $size * 1%
+    @include flexDisplay($size)
+
+@mixin flexOrderMaker($order, $screenSize)
+  .flex-order-#{$screenSize}-#{$order}
+    order: $order
+
+@include media($desktopMedia)
+  @for $i from 0 through 100
+    @include flexMaker($i, $desktopMedia)
+    @include flexOrderMaker($i , $desktopMedia)
+
+@include media($tabletMedia)
+  @for $i from 0 through 100
+    @include flexMaker($i, $tabletMedia)
+    @include flexOrderMaker($i , $tabletMedia)
+
+@include media($mobileMedia)
+  @for $i from 0 through 100
+    @include flexMaker($i, $mobileMedia)
+    @include flexOrderMaker($i , $mobileMedia)

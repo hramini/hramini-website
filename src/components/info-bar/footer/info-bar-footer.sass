@@ -1,0 +1,22 @@
+@import ../../../global/styles/style-variables
+
+.c-info-bar-footer
+  position: absolute
+  bottom: 0
+  width: 100%
+  @include themed()
+    background: color($primary-lighter)
+  &__social-networks
+    padding: 0 size(35)
+    display: flex
+    height: size(50)
+    align-items: center
+    justify-content: center
+    a
+      margin: 0 size(8)
+      @include themed()
+        color: color($neutral-50)
+      @include font-content(14)
+      &:hover
+        @include themed()
+          color: color($secondary)

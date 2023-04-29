@@ -1,0 +1,17 @@
+@import ../../global/styles/style-variables
+
+.button
+  height: size(50)
+  min-width: size(100)
+  @include themed()
+    background-color: color($secondary)
+  border: none
+  padding: 0 size(20)
+  cursor: pointer
+  @include font-content(16)
+  transition: 0.5s
+  &:hover
+    @include themed()
+      background-color: color($neutral-white)
+    border-radius: size(3)
+    transition: 0.5s

@@ -1,0 +1,15 @@
+@import ../../global/styles/style-variables
+
+.c-contact-box
+  padding: size(20)
+  @include themed()
+    background-color: color($primary-lighter)
+  &_item
+    @include font-content-only()
+    &__key
+      @include themed()
+        color: color($secondary)
+    &__value
+      float: right
+      @include themed()
+        color: color($neutral-80)

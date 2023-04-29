@@ -1,0 +1,26 @@
+@import ../../../global/styles/style-variables
+
+.c-info-bar-header
+  padding: size(30)
+  text-align: center
+  @include themed()
+    background-color: color($primary-lighter)
+  &__image
+    border-radius: 50%
+    width: size(90)
+    height: size(90)
+  &__name
+    @include themed()
+      color: color($neutral-95)
+    font-weight: bold
+    margin-bottom: 0
+    cursor: pointer
+    @include font-title(18)
+    &:hover
+      @include themed()
+        color: color($secondary)
+  &__profession
+    @include themed()
+      color: color($neutral-50)
+    margin-bottom: 0
+    @include font-content(14)

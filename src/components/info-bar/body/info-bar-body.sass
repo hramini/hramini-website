@@ -1,0 +1,32 @@
+@import ../../../global/styles/style-variables
+
+.c-info-bar-body
+  box-sizing: border-box
+  padding: size(15) size(30)
+  height: calc(100% - #{size(280)})
+  overflow: auto
+  &__section
+    padding-bottom: size(15)
+    &-title
+      @include font-title(14)
+      @include themed()
+        color: color($neutral-95)
+      margin: size(15) 0
+  &__cv
+    text-align: center
+    &-link
+      @include themed()
+        color: color($neutral-80)
+      text-decoration: none
+      @include themed()
+        ouline-color: color($neutral-80)
+      outline:
+        width: size(1)
+        style: solid
+        offset: size(3)
+      border-radius: size(2)
+      @include font-content(16)
+      &:hover
+        @include themed()
+          color: color($secondary)
+          outline-color: color($secondary)

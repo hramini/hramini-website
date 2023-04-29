@@ -1,0 +1,9 @@
+node_modules/
+.cache/
+public
+.env
+src/components/test-component/
+src/pages/test-page.tsx
+client-secret.json
+.DS_Store
+package-lock.json

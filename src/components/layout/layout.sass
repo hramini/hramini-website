@@ -1,0 +1,66 @@
+@import ../../global/styles/style-variables
+
+.layout
+  padding: size($layout-padding)
+  @include themed()
+    background-color: color($primary-darker)
+  &::before,
+  &::after
+    content: ''
+    position: fixed
+    left: 0
+    width: 100%
+    height: 15px
+    @include themed()
+      background: color($primary-darker)
+    z-index: 9999
+  &::before
+    top: 0
+  &::after
+    bottom: 0
+  &__container
+    position: relative
+    display: flex
+    flex-wrap: nowrap
+    overflow: hidden
+  &__content
+    position: relative
+    overflow: hidden
+    width: 100vw
+    padding-left: size($info-bar-width)
+    padding-right: size($menu-bar-width)
+    height: auto
+    min-height: $box-height
+    transition: .55s ease-in-out
+    @include themed()
+      background-color: color($primary)
+    &--menu-opened
+      transform: translateX(#{size(-150)})
+    &-inner
+      padding: size(30)
+      overflow: visible
+      min-height: calc(100vh - #{size(140)})
+      position: relative
+      padding-bottom: size(80)
+  &_footer
+    height: size(50)
+    @include themed()
+      background-color: color($primary-lighter)
+    padding: 0 size(30)
+    position: absolute
+    width: calc(100% - #{size(120)})
+    bottom: 0
+    p
+      @include themed()
+        color: color($neutral-80)
+      margin: 0
+      @include font-content(16, 50)
+    &__email
+      text-align: end
+      a
+        @include themed()
+          color: color($neutral-80)
+        text-decoration: none
+        &:hover
+          @include themed()
+            color: color($secondary)

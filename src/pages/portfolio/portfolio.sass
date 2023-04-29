@@ -1,0 +1,33 @@
+@import ../../global/styles/style-variables
+
+.portfolio
+  &_title
+    @include themed()
+      color: color($neutral-95)
+    @include font-title-only()
+    padding-inline-start: size(5)
+  &_project-box-holder
+    padding: size(10)
+  &_stacks
+    margin: 0
+    padding-inline-start: size(10)
+    &__item
+      display: inline-block
+      list-style: none
+      cursor: pointer
+      @include font-content-only()
+      @include themed()
+        color: color($neutral-50)
+      &:hover
+        @include themed()
+          color: color($neutral-95)
+      &:not(:last-child)
+        margin-inline-end: size(20)
+      &--active
+        @include themed()
+          color: color($neutral-95)
+          border-bottom-color: color($secondary)
+        cursor: default
+        border-bottom:
+          width: size(2)
+          style: solid

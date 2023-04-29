@@ -1,0 +1,14 @@
+@import ../../global/styles/style-variables
+
+.education
+  &_title
+    @include font-title-only()
+    @include themed()
+      color: color($neutral-95)
+    margin-top: size(30)
+  &_flex
+    box-sizing: border-box
+    &:nth-child(2n)
+      padding-inline-start: size(10)
+    &:nth-child(2n+1)
+      padding-inline-end: size(10)

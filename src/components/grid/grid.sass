@@ -1,0 +1,48 @@
+@import ../../global/styles/style-variables
+
+@mixin row
+  -webkit-box-orient: horizontal
+  -moz-box-orient: horizontal
+  flex-direction: row
+  width: 100%
+  height: inherit
+  & > .flex
+    height: auto
+    max-height: 100%
+
+@mixin column
+  -webkit-box-orient: vertical
+  -moz-box-orient: vertical
+  flex-direction: column
+  width: inherit
+  height: 100%
+  & > .flex
+    width: auto
+    max-width: 100%
+
+.grid
+  display: flex
+
+.wrap
+  flex-wrap: wrap
+
+@include media($desktopMedia)
+  .row-desktop
+    @include row
+
+  .column-desktop
+    @include column
+
+@include media($tabletMedia)
+  .row-tablet
+    @include row
+
+  .column-tablet
+    @include column
+
+@include media($mobileMedia)
+  .row-mobile
+    @include row
+
+  .column-mobile
+    @include column

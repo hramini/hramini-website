@@ -1,0 +1,158 @@
+@use 'sass:math'
+
+$desktopMedia: 'desktop'
+$tabletMedia: 'tablet'
+$mobileMedia: 'mobile'
+
+$radius: 8
+$button-height: 64
+$button-height-mobile: 55
+$input-height: 64
+$input-height-mobile: 55
+$header-height: 150
+$header-height-mobile: 72
+$base-font-size: 16
+$base-unit: em
+$base-font-unit: rem
+$banner-padding: 96
+$banner-padding-mobile: 42
+
+$primary: 'primary'
+$primary-dark: 'primary-dark'
+$primary-darker: 'primary-darker'
+$primary-light: 'primary-light'
+$primary-lighter: 'primary-lighter'
+$primary-lighter-alpha: 'primary-lighter-alpha'
+$secondary: 'secondary'
+$neutral-black: 'neutral-black'
+$neutral-white: 'neutral-white'
+$neutral-hr: 'neutral-hr'
+$neutral-50: 'neutral-50'
+$neutral-80: 'neutral-80'
+$neutral-95: 'neutral-95'
+
+//// light theme colors ////
+
+// primary
+$primary-color: #dcdce5
+$primary-dark-color: #d0d0dc
+$primary-darker-color: #c4c4d4
+$primary-light-color: #E8e8ee
+$primary-lighter-color: #f3f3f6
+$primary-lighter-alpha-color: rgba(36, 36, 48, 0.8)
+
+$primary-gradient-color: linear-gradient(36.9deg,#dbf2f3 15.79%,#dbf2f3 15.8%,#edfffa 52.06%,#f7fffb 89.87%)
+
+// secondary
+// $secondary-color: #D1345B
+$secondary-color: #FF4F79
+// $secondary-color: #D72638
+// $secondary-color: #D72638
+
+// neutral
+$neutral-color-black: #000000
+$neutral-color-hr: #fefefe
+$neutral-color-50: #8c8c8e
+$neutral-color-80: #5c5c6f
+$neutral-color-95: #4c4c5b
+$neutral-color-white: #ffffff
+
+////////
+
+//// dark theme colors ////
+
+// primary
+$dark-primary-color: #1e1e28
+$dark-primary-dark-color: #191923
+$dark-primary-darker-color: #101016
+$dark-primary-light-color: #20202a
+$dark-primary-lighter-color: #242430
+$dark-primary-lighter-alpha-color: rgba(36, 36, 48, 0.8)
+
+$dark-primary-gradient-color: linear-gradient(36.9deg,#dbf2f3 15.79%,#dbf2f3 15.8%,#edfffa 52.06%,#f7fffb 89.87%)
+
+// secondary
+$dark-secondary-color: #ffc107
+// $dark-secondary-color: #5EE082
+
+// neutral
+$dark-neutral-color-black: #000000
+$dark-neutral-color-hr: #8c8c8e
+$dark-neutral-color-50: #8c8c8e
+$dark-neutral-color-80: #cbcbd4
+$dark-neutral-color-95: #fafafc
+$dark-neutral-color-white: #ffffff
+
+////////
+
+// Theme mixins //
+
+$themes: ('light': ('primary': $primary-color, 'primary-dark': $primary-dark-color, 'primary-darker': $primary-darker-color, 'primary-light': $primary-light-color, 'primary-lighter': $primary-lighter-color, 'primary-lighter-alpha': $primary-lighter-alpha-color, 'secondary': $secondary-color, 'neutral-black': $neutral-color-black, 'neutral-white': $neutral-color-white, 'neutral-hr': $neutral-color-hr, 'neutral-50': $neutral-color-50, 'neutral-80': $neutral-color-80, 'neutral-95': $neutral-color-95), 'dark': ('primary': $dark-primary-color, 'primary-dark': $dark-primary-dark-color, 'primary-darker': $dark-primary-darker-color, 'primary-light': $dark-primary-light-color, 'primary-lighter': $dark-primary-lighter-color, 'primary-lighter-alpha': $dark-primary-lighter-alpha-color, 'secondary': $dark-secondary-color, 'neutral-black': $dark-neutral-color-black, 'neutral-white': $dark-neutral-color-white, 'neutral-50': $dark-neutral-color-50, 'neutral-hr': $dark-neutral-color-hr, 'neutral-80': $dark-neutral-color-80, 'neutral-95': $dark-neutral-color-95))
+
+@mixin themed()
+  @each $theme, $map in $themes
+    .theme--#{$theme} &
+      $theme-map: () !global
+      @each $key, $submap in $map
+        $value: map-get(map-get($themes, $theme), '#{$key}')
+        $theme-map: map-merge($theme-map, ($key: $value)) !global
+
+      @content
+      $theme-map: null !global
+
+@function color($key)
+  @return map-get($theme-map, $key)
+
+////////
+
+@function size($size, $font-size: $base-font-size)
+  $calculated-size: math.div($size, $font-size)
+  @return #{$calculated-size}#{$base-unit}
+
+@function font-calc($size)
+  $calculated-size: math.div($size, $base-font-size)
+  @return #{$calculated-size}#{$base-font-unit}
+
+@mixin font-title-only($weight: 700)
+  font:
+    family: title
+    weight: $weight
+
+@mixin font-title($size: $base-font-size, $line-height: 24, $weight: 700)
+  line-height: size($line-height, $size)
+  font:
+    family: title
+    weight: $weight
+    size: font-calc($size)
+
+@mixin font-content($size: $base-font-size, $line-height: 24, $weight: 500)
+  line-height: size($line-height, $size)
+  font:
+    family: content
+    weight: $weight
+    size: font-calc($size)
+
+@mixin font-content-only($weight: 500)
+  font:
+    family: content
+    weight: $weight
+
+@mixin media($size)
+  $query: ''
+  @if ($size == $desktopMedia)
+    $query: "(min-width: 1200px)"
+  @if ($size == $tabletMedia)
+    $query: "(max-width: 1199px) and (min-width: 961px)"
+  @if ($size == $mobileMedia)
+    $query: "(max-width: 960px)"
+
+  @media #{$query}
+    @content
+
+// layout variables
+$layout-padding: 15
+$info-bar-width: 290
+$menu-bar-width: 80
+$menu-bar-open-width: 230
+$box-height: calc(100vh - #{size($layout-padding*2)})
+//////////

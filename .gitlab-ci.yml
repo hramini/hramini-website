@@ -1,0 +1,39 @@
+# Includes deployment pipeline only
+image: alpine:3.7
+stages:
+  - build
+  - deploy
+
+before_script:
+  - apk add openssh-client # Add SSH client for alpine
+  - eval $(ssh-agent -s) # Run the SSH client
+  # Adding environment's variable SSH_PRIVATE_KEY to the SSH client's agent that manages the private keys
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+  # Create the SSH directory and give it the right permissions
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+
+build:
+  stage: build
+  script:
+    - ssh -o StrictHostKeyChecking=no root@159.65.33.97 "lsof -ti tcp:9000 | xargs --no-run-if-empty kill -9"
+    - ssh -o StrictHostKeyChecking=no root@159.65.33.97 "cd /home/app/state-of-democracy && git checkout main && git pull origin main && npm i && npm run build"
+    - ssh -o StrictHostKeyChecking=no root@159.65.33.97 "cd /home/app/state-of-democracy && ./serve.sh"
+    - ssh -o StrictHostKeyChecking=no root@159.65.33.97 "cd /home/app/image-generator && git checkout develop && git pull origin develop && cd src && npm i && npm run dev"
+    - ssh -o StrictHostKeyChecking=no root@159.65.33.97 "mkdir -p /home/app/state-of-democracy/public/static/images && mv /home/app/image-generator/src/public/images/*.png /home/app/state-of-democracy/public/static/images && rm -rf /home/app/sod-staging/public && mv /home/app/state-of-democracy/public /home/app/sod-staging"
+    # -o StrictHostKeyCheking=no is to disable strict host key checking in SSH
+  only:
+    - main
+  allow_failure: false
+  when: on_success
+
+deploy:
+  stage: deploy
+  script:
+    # Connecting to the server using SSH and executing commands like pulling updates to the cloned repo
+    - ssh -o StrictHostKeyChecking=no root@159.65.33.97 "cd /home/app/sod-staging && git add . && git commit -m ‍\"$CI_COMMIT_MESSAGE\" && git push"
+    # -o StrictHostKeyCheking=no is to disable strict host key checking in SSH
+  only:
+    - main
+  allow_failure: false
+  when: on_success

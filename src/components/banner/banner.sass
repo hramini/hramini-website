@@ -1,0 +1,26 @@
+@import ../../global/styles/style-variables
+
+.banner
+  position: relative
+  &_image
+    @include themed()
+      background-color: color($primary-dark)
+  &_content
+    position: absolute
+    top: 50%
+    left: size(40)
+    transform: translateY(-50%)
+    &__title
+      margin: 0
+      position: relative
+      @include themed()
+        color: color($neutral-95)
+      @include font-content(50, 50, 700)
+    &__quote
+      position: relative
+      @include themed()
+        color: color($neutral-95)
+      @include font-title(18, 24, 400)
+      span
+        @include themed()
+          color: color($secondary)

@@ -1,0 +1,13 @@
+@import ../../../../../global/styles/style-variables
+
+.c-knowledge
+  list-style: none
+  padding-left: 0
+  &__item
+    @include font-content(14)
+    @include themed()
+      color: color($neutral-50)
+  .fa
+    @include themed()
+      color: color($secondary)
+    margin-right: size(10)

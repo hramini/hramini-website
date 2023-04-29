@@ -1,0 +1,12 @@
+@import ../../global/styles/style-variables
+
+.blog
+  &_title
+    @include themed()
+      color: color($neutral-95)
+    @include font-title-only()
+  &_posts
+    padding-inline-end: size(15)
+  &_categories
+    border-inline-start: size(1) solid $neutral-color-80
+    padding-inline-start: size(15)

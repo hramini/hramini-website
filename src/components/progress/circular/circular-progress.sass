@@ -1,0 +1,23 @@
+@import ../../../global/styles/style-variables
+
+.c-circular-progress
+  svg
+    vertical-align: middle
+  &__progress
+    position: relative
+  &__percent
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    margin: 0
+    @include font-content(12)
+    @include themed()
+      color: color($neutral-95)
+  &__label
+    margin: 0
+    @include themed()
+      color: color($neutral-95)
+  & svg > circle.rc-progress-circle-path
+    @include themed()
+      stroke: color($secondary) !important

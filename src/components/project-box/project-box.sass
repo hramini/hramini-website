@@ -1,0 +1,30 @@
+@import ../../global/styles/style-variables
+
+.project-box
+  box-sizing: border-box
+  padding: size(10) size(20)
+  height: 100%
+  @include themed()
+    background-color: color($primary-lighter)
+  &_title
+    margin-bottom: 0
+    @include font-title(16)
+    @include themed()
+      color: color($neutral-95)
+  &_detail
+    @include themed()
+      color: color($neutral-50)
+    @include font-content(14, 18)
+  &_at
+    margin-top: 0
+  &_description,
+  &_used-technologies
+    height: size(36)
+  &_url
+    a
+      text-decoration: none
+      @include font-content(14, 18)
+      @include themed()
+        color: color($secondary)
+      &:hover
+        text-decoration: underline

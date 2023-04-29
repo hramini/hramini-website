@@ -1,0 +1,15 @@
+@import ../../../global/styles/style-variables
+
+.c-linear-progress
+  &__label
+    display: flex
+    justify-content: space-between
+    margin: 0
+    &-text
+      @include font-content(14)
+      @include themed()
+        color: color($neutral-95)
+      margin: 0
+  & > svg > path.rc-progress-line-path
+    @include themed()
+      stroke: color($secondary)

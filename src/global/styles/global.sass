@@ -1,0 +1,56 @@
+@import ./style-variables
+
+@font-face
+  font-family: 'title'
+  font-weight: normal
+  font-style: normal
+  font-display: swap
+  src: url('../../assets/fonts/ibm-normal.woff') format('woff')
+  src: url('../../assets/fonts/ibm-normal.woff2') format('woff2')
+
+@font-face
+  font-family: 'title'
+  font-weight: bold
+  font-style: normal
+  font-display: swap
+  src: url('../../assets/fonts/ibm-bold.woff') format('woff')
+  src: url('../../assets/fonts/ibm-bold.woff2') format('woff2')
+
+@font-face
+  font-family: 'title'
+  font-weight: 600
+  font-style: normal
+  font-display: swap
+  src: url('../../assets/fonts/ibm-semibold.woff') format('woff')
+  src: url('../../assets/fonts/ibm-semibold.woff2') format('woff2')
+
+@font-face
+  font-family: 'content'
+  font-weight: normal
+  font-style: normal
+  font-display: swap
+  src: url('../../assets/fonts/Supreme-Regular.woff') format('woff')
+  src: url('../../assets/fonts/Supreme-Regular.woff2') format('woff2')
+
+@font-face
+  font-family: 'content'
+  font-weight: bold
+  font-style: normal
+  font-display: swap
+  src: url('../../assets/fonts/Supreme-Bold.woff') format('woff')
+  src: url('../../assets/fonts/Supreme-Bold.woff2') format('woff2')
+
+hr
+  border-width: size(1)
+  @include themed()
+    border-color: color($neutral-hr)
+  margin: 0
+
+*::-webkit-scrollbar
+  width: 6px
+  @include themed()
+    background-color: color($primary-dark)
+
+*::-webkit-scrollbar-thumb
+  @include themed()
+    background-color: color($primary-lighter)

@@ -1,0 +1,48 @@
+@import ../../global/styles/style-variables
+
+.c-post
+  &_header
+    position: relative
+    &__title
+      @include themed()
+        color: color($neutral-95)
+      @include font-content(30, 50, 700)
+    &__back-link
+      text-decoration: none
+      @include themed()
+        color: color($secondary)
+    &__date
+      @include themed()
+        background-color: color($primary-lighter)
+        color: color($neutral-80)
+      padding: size(10)
+      border-radius: size(10)
+      position: absolute
+      right: 0
+      top: size(5)
+      @include font-content(14)
+  &_article
+    &__image-holder
+      margin-bottom: size(30)
+    &__image
+      width: 100%
+    &__content
+      @include themed()
+        background-color: color($primary-lighter)
+        color: color($neutral-95)
+      padding: size(15) size(30)
+      @include font-content-only()
+      a
+        @include themed()
+          color: color($secondary)
+        text-decoration: none
+        &:hover
+          text-decoration: underline
+      .prism
+        @include themed()
+          background-color: color($primary)
+        padding: size(20)
+        font-size: font-calc(13)
+      ul > li:before
+        @include themed()
+          background-color: color($secondary)

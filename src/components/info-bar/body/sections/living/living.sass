@@ -1,0 +1,17 @@
+@import ../../../../../global/styles/style-variables
+
+.c-living
+  margin: 0
+  padding-left: 0
+  li
+    display: flex
+    justify-content: space-between
+    h6
+      margin: 0
+      @include themed()
+        color: color($neutral-95)
+      @include font-title(13)
+    span
+      @include themed()
+        color: color($neutral-50)
+      @include font-content(13)

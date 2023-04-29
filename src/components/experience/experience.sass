@@ -1,0 +1,16 @@
+@import ../../global/styles/style-variables
+
+.experience
+  &_title
+    @include font-title-only()
+    @include themed()
+      color: color($neutral-95)
+    margin-top: size(30)
+  &_flex
+    box-sizing: border-box
+    &:nth-child(3n)
+      padding-inline-start: size(10)
+    &:nth-child(3n+2)
+      padding-inline: size(10)
+    &:nth-child(3n+1)
+      padding-inline-end: size(10)
