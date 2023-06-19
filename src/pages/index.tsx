@@ -55,6 +55,7 @@ export const query = graphql`
           remote
           time
           website
+          type
         }
         title
         content

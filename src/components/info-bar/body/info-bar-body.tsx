@@ -31,7 +31,12 @@ export class InfoBarBody extends BaseComponent {
         <hr />
         <div className="c-info-bar-body__section">
           <p className="c-info-bar-body__cv">
-            <a className="c-info-bar-body__cv-link" href="" download>
+            <a
+              className="c-info-bar-body__cv-link"
+              href="https://hramini-back.ir/wp-content/uploads/2023/06/Hamidreza-Amini-CV-New.pdf"
+              download
+              target="_blank"
+            >
               Download my CV <i className="fa fa-download"></i>
             </a>
           </p>

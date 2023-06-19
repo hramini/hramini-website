@@ -67,12 +67,23 @@ export default class Layout extends BaseComponent<
                 {children}
                 <footer className="layout_footer">
                   <Grid layout={GridLayoutType.ROW}>
-                    <Flex size={50}>
+                    <Flex size={33}>
                       <p className="layout_footer__rights">
                         &copy; {new Date().getFullYear()} All rights reserved.
                       </p>
                     </Flex>
-                    <Flex size={50}>
+                    <Flex size={33}>
+                      <p className="layout_footer__source-code">
+                        <a
+                          href="https://github.com/hramini/hramini-website"
+                          target="_blank"
+                        >
+                          <i className="fa fa-github"></i> My Website Source
+                          Code
+                        </a>
+                      </p>
+                    </Flex>
+                    <Flex size={33}>
                       <p className="layout_footer__email">
                         <a href="mailto:hramini72@gmail.com">
                           <i className="fa fa-envelope"></i> hramini72@gmail.com

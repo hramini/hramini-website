@@ -15,7 +15,7 @@ export class InfoBarHeader extends BaseComponent {
           />
         </div>
         <p className="c-info-bar-header__name">Hamidreza Amini</p>
-        <p className="c-info-bar-header__profession">Full-Stack Developer</p>
+        <p className="c-info-bar-header__profession">JavaScript Engineer</p>
       </div>
     );
   }

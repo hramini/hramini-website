@@ -7,6 +7,7 @@ export interface IExperienceBoxProperties {
     remote: boolean;
     time: string;
     website: string;
+    type: string;
   };
   content: string;
 }

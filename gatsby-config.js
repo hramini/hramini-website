@@ -8,7 +8,7 @@ module.exports = {
     siteUrl: process.env.SITE_URL,
     title: 'Hamidreza Amini',
     apiUrl:
-      process.env.WORDPRESS_API_URL ?? 'http://api.hramini.ir/wp-json/wp/v1',
+      process.env.WORDPRESS_API_URL ?? 'https://hramini-back.ir/wp-json/wp/v1',
   },
   plugins: [
     'gatsby-plugin-image',
@@ -24,6 +24,11 @@ module.exports = {
         url: process.env.WORDPRESS_GRAPHQL_URL,
         html: {
           useGatsbyImage: false,
+        },
+        schema: {
+          perPage: 20, // currently set to 100
+          requestConcurrency: 5, // currently set to 15
+          previewRequestConcurrency: 2, // currently set to 5
         },
       },
     },

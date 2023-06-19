@@ -1,0 +1,20 @@
+@import ../../global/styles/style-variables
+
+.about
+  &_title
+    @include themed()
+      color: color($neutral-95)
+    @include font-title-only()
+  &_content
+    line-height: size(25)
+    text-align: justify
+    @include font-content-only()
+    @include themed()
+      color: color($neutral-50)
+      & > i, b
+        color: color($neutral-80)
+  &_posts
+    padding-inline-end: size(15)
+  &_categories
+    border-inline-start: size(1) solid $neutral-color-80
+    padding-inline-start: size(15)

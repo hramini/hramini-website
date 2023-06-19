@@ -1,33 +1,19 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import BaseComponent from '../../../../../base/base-component';
-import { LinearProgress } from '../../../../progress/linear/linear-progress';
+import { codingData } from './coding-data';
 import './coding.sass';
+import { CodingItem } from './item/coding-item';
+import { ICodingItemProperties } from './item/coding-item-interface';
 
 export class Coding extends BaseComponent {
   public render(): ReactElement {
     return (
       <div className="c-coding">
-        <div className="c-coding__progress">
-          <LinearProgress percent={80} label="React" />
-        </div>
-        <div className="c-coding__progress">
-          <LinearProgress percent={50} label="React Native" />
-        </div>
-        <div className="c-coding__progress">
-          <LinearProgress percent={70} label="NodeJs" />
-        </div>
-        <div className="c-coding__progress">
-          <LinearProgress percent={90} label="Javascript" />
-        </div>
-        <div className="c-coding__progress">
-          <LinearProgress percent={90} label="Typescript" />
-        </div>
-        <div className="c-coding__progress">
-          <LinearProgress percent={80} label="C#, ASP.NET" />
-        </div>
-        <div className="c-coding__progress">
-          <LinearProgress percent={90} label="HTML, CSS" />
-        </div>
+        {codingData.map(
+          (item: ICodingItemProperties, index: number): ReactNode => {
+            return <CodingItem key={index} {...item} />;
+          }
+        )}
       </div>
     );
   }

@@ -1,7 +1,6 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import React, { ReactElement } from 'react';
 import BaseComponent from '../../base/base-component';
-import { Button } from '../button/button';
 import './banner.sass';
 
 export class Banner extends BaseComponent {
@@ -29,7 +28,9 @@ export class Banner extends BaseComponent {
             <span>code</span>
             {'>'}
           </p>
-          <Button>{this.translate('readMoreButtonText')}</Button>
+          <a href="/about" className="banner_button">
+            {this.translate('readMoreButtonText')}
+          </a>
         </div>
       </section>
     );

@@ -24,3 +24,21 @@
       span
         @include themed()
           color: color($secondary)
+  &_button
+    display: inline-block
+    height: size(50)
+    min-width: size(100)
+    text-decoration: none
+    @include themed()
+      background-color: color($secondary)
+      color: color($neutral-black)
+    border: none
+    padding: 0 size(20)
+    cursor: pointer
+    transition: 0.5s
+    @include font-content(16, 50)
+    &:hover
+      @include themed()
+        background-color: color($neutral-white)
+      border-radius: size(3)
+      transition: 0.5s

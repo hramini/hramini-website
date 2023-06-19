@@ -1,4 +1,4 @@
-import React, { Fragment, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import BaseComponent from '../../../base/base-component';
 import HistoryBox from '../../history-box/history-box';
 import { IExperienceBoxProperties } from './experience-box-interface';
@@ -7,7 +7,7 @@ export default class ExperienceBox extends BaseComponent<IExperienceBoxPropertie
   public render(): ReactElement {
     const {
       title,
-      jobDetails: { address, role, remote, time, duration, website },
+      jobDetails: { address, role, remote, time, duration, website, type },
     } = this.props;
 
     return (
@@ -19,9 +19,10 @@ export default class ExperienceBox extends BaseComponent<IExperienceBoxPropertie
         details={[
           address,
           time,
-          <Fragment>
-            <span>Remote Job?</span> {remote ? 'Yes' : 'No'}
-          </Fragment>,
+          type,
+          // <Fragment>
+          //   <span>Remote Job?</span> {remote ? 'Yes' : 'No'}
+          // </Fragment>,
         ]}
       />
     );

@@ -44,7 +44,7 @@ export const englishUSA: IResource = {
     gradeText: 'Hover on a state for details',
     banner: {
       title: "Hi, I'm Hamidreza",
-      subtitle: 'A programming lover ...',
+      subtitle: 'A JavaScript Engineer ...',
       readMoreButtonText: 'Read more about me',
     },
     experience: {
