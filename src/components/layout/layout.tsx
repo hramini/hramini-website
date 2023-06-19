@@ -78,7 +78,7 @@ export default class Layout extends BaseComponent<
                           href="https://github.com/hramini/hramini-website"
                           target="_blank"
                         >
-                          <i className="fa fa-github"></i> My Website Source
+                          <i className="fa fa-github"></i> My Website's Source
                           Code
                         </a>
                       </p>
