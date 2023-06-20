@@ -1,6 +1,8 @@
+import { Box, Grid } from '@mui/material';
 import { StaticImage } from 'gatsby-plugin-image';
 import React, { ReactElement } from 'react';
 import BaseComponent from '../../base/base-component';
+import { sizeCalc } from '../../global/size-calculator/size-calculator';
 import './banner.sass';
 
 export class Banner extends BaseComponent {
@@ -10,14 +12,22 @@ export class Banner extends BaseComponent {
 
   public render(): ReactElement {
     return (
-      <section className="banner">
+      <Box component="section" className="banner">
         <StaticImage
           className="banner_image"
           src="../../assets/images/transparent2.png"
           alt="Hamidreza Amini"
           formats={['png']}
         />
-        <div className="banner_content">
+        <Grid
+          sx={{
+            position: 'absolute',
+            top: '50%',
+            left: sizeCalc(40),
+            transform: 'translateY(-50%)',
+          }}
+          // className="banner_content"
+        >
           <h1 className="banner_content__title">{this.translate('title')}</h1>
           <p className="banner_content__quote">
             {'<'}
@@ -31,8 +41,8 @@ export class Banner extends BaseComponent {
           <a href="/about" className="banner_button">
             {this.translate('readMoreButtonText')}
           </a>
-        </div>
-      </section>
+        </Grid>
+      </Box>
     );
   }
 }

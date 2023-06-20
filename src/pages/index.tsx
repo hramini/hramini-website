@@ -34,7 +34,7 @@ export default class Home extends BaseComponent<IHomeProperties> {
     const { experiences, educations, testimonials } = this.props.data;
 
     return (
-      <Layout title="Home" description="Full Stack Developer">
+      <Layout title="Home" description="JavaScript Engineer">
         <Banner />
         <Experience experiences={experiences.nodes} />
         <Education educations={educations.nodes} />
