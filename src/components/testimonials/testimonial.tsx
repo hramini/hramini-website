@@ -22,7 +22,7 @@ export default class Testimonial extends BaseComponent<ITestimonialProperties> {
         <h2 className="testimonial_title">
           <TagContainer text={this.translate('title')} />
         </h2>
-        <Grid layout={GridLayoutType.ROW}>
+        <Grid layout={GridLayoutType.ROW} wrap>
           {testimonials
             .filter((t) => t.testimonialDetails.confirm)
             .map(
@@ -31,7 +31,12 @@ export default class Testimonial extends BaseComponent<ITestimonialProperties> {
                 index: number
               ): ReactElement => {
                 return (
-                  <Flex size={50} key={index} className="testimonial_flex">
+                  <Flex
+                    size={50}
+                    mobileSize={100}
+                    key={index}
+                    className="testimonial_flex"
+                  >
                     <TestimonialBox {...testimonial} />
                   </Flex>
                 );

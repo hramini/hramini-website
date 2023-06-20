@@ -1,0 +1,25 @@
+@import ../../global/styles/style-variables
+
+.c-info-bar-mobile
+  width: 100%
+  @include media($desktopMedia)
+    display: none
+  &_base-info
+    margin-block: size(20)
+  &_skills
+    margin-top: size(30)
+  &_section-title
+    text-align: center
+    margin-block: 0 size(20)
+    @include font-title(14)
+    @include themed()
+      color: color($neutral-95)
+  &_vertical-divider
+    width: 1px
+    height: 100%
+    padding: 0 !important
+    margin-inline: auto
+    @include themed()
+      background-color: color($neutral-50)
+  & .flex > div
+    padding-inline: size(20)

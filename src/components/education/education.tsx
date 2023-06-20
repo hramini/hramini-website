@@ -21,14 +21,19 @@ export default class Education extends BaseComponent<IEducationProperties> {
         <h2 className="education_title">
           <TagContainer text={this.translate('title')} />
         </h2>
-        <Grid layout={GridLayoutType.ROW}>
+        <Grid layout={GridLayoutType.ROW} wrap>
           {educations.map(
             (
               education: IEducationBoxProperties,
               index: number
             ): ReactElement => {
               return (
-                <Flex size={50} key={index} className="education_flex">
+                <Flex
+                  size={50}
+                  mobileSize={100}
+                  key={index}
+                  className="education_flex"
+                >
                   <EducationBox {...education} />
                 </Flex>
               );

@@ -7,6 +7,9 @@
     @include font-content(14)
     @include themed()
       color: color($neutral-50)
+    @include media($mobileMedia)
+      @include font-content(14, 36)
+
   .fa
     @include themed()
       color: color($secondary)

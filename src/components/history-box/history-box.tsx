@@ -16,7 +16,7 @@ export default class HistoryBox extends BaseComponent<IHistoryBoxProperties> {
         <a className={titleClassName} href={url} target="_blank">
           <h3>{title}</h3>
         </a>
-        <p className="history-box_detail">
+        <p className="history-box_detail history-box_detail--subtitle">
           <i>{subtitle}</i>
         </p>
         <p className="history-box_detail history-box_duration">{duration}</p>

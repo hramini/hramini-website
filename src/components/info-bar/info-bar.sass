@@ -6,6 +6,12 @@
   min-width: size($info-bar-width)
   height: $box-height
   transition: .55s ease-in-out
+  @include media($mobileMedia)
+    // height: $mobile-box-height
+    // // width: 100%
+    // // min-width: unset
+    // left: size(-$info-bar-width)
+    display: none
   @include themed()
     background-color: color($primary-light)
   box-shadow: 0 3px 8px 0 rgb(15 15 20 / 20%)

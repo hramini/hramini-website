@@ -40,6 +40,14 @@
   src: url('../../assets/fonts/Supreme-Bold.woff') format('woff')
   src: url('../../assets/fonts/Supreme-Bold.woff2') format('woff2')
 
+html
+  line-height: unset
+  font-size: 16px
+  @include media($tabletMedia)
+    font-size: 14px
+  @include media($mobileMedia)
+    font-size: 12px
+
 hr
   border-width: size(1)
   @include themed()

@@ -30,7 +30,12 @@ export default class Experience extends BaseComponent<IExperienceProperties> {
               const size = index % 3 === 1 ? 34 : 33;
 
               return (
-                <Flex size={size} key={index} className="experience_flex">
+                <Flex
+                  size={size}
+                  mobileSize={50}
+                  key={index}
+                  className="experience_flex"
+                >
                   <ExperienceBox {...experience} />
                 </Flex>
               );

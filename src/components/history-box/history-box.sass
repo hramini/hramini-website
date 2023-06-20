@@ -25,6 +25,9 @@
     @include themed()
       color: color($neutral-80)
     @include font-content(13)
+    &--subtitle
+      @include media($mobileMedia)
+        @include font-content(12)
   &_duration
     @include themed()
       background-color: color($primary-light)

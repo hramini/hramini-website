@@ -10,17 +10,23 @@
     top: 50%
     left: size(40)
     transform: translateY(-50%)
+    @include media($mobileMedia)
+      left: size(10)
     &__title
       margin: 0
       position: relative
+      @include font-content(50, 50, 700)
+      @include media($mobileMedia)
+        @include font-content(25, 30, 700)
       @include themed()
         color: color($neutral-95)
-      @include font-content(50, 50, 700)
     &__quote
       position: relative
+      @include font-title(18, 24, 400)
+      @include media($mobileMedia)
+        @include font-content(12, 20, 400)
       @include themed()
         color: color($neutral-95)
-      @include font-title(18, 24, 400)
       span
         @include themed()
           color: color($secondary)
@@ -42,3 +48,6 @@
         background-color: color($neutral-white)
       border-radius: size(3)
       transition: 0.5s
+    @include media($mobileMedia)
+      height: size(25, 10)
+      @include font-content(10, 30)

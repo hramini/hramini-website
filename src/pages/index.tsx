@@ -6,6 +6,7 @@ import { IEducationBoxProperties } from '../components/education/box/education-b
 import Education from '../components/education/education';
 import { IExperienceBoxProperties } from '../components/experience/box/experience-box-interface';
 import Experience from '../components/experience/experience';
+import { InfoBarMobile } from '../components/info-bar-mobile/info-bar-mobile';
 import Layout from '../components/layout/layout';
 import { ITestimonialBoxProperties } from '../components/testimonials/box/testimonial-box-interface';
 import Testimonial from '../components/testimonials/testimonial';
@@ -36,6 +37,7 @@ export default class Home extends BaseComponent<IHomeProperties> {
     return (
       <Layout title="Home" description="Full Stack Developer">
         <Banner />
+        <InfoBarMobile />
         <Experience experiences={experiences.nodes} />
         <Education educations={educations.nodes} />
         <Testimonial testimonials={testimonials.nodes} />

@@ -8,7 +8,11 @@
     margin-top: size(30)
   &_flex
     box-sizing: border-box
-    &:nth-child(2n)
-      padding-inline-start: size(10)
-    &:nth-child(2n+1)
-      padding-inline-end: size(10)
+    @include media($desktopMedia)
+      &:nth-child(2n)
+        padding-inline-start: size(10)
+      &:nth-child(2n+1)
+        padding-inline-end: size(10)
+    @include media($mobileMedia)
+      &:not(:first-of-type)
+        margin-top: size(20)

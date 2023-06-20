@@ -5,6 +5,10 @@
   height: $box-height
   width: size($menu-bar-width)
   right: size($layout-padding)
+  @include media($mobileMedia)
+    right: size($mobile-layout-padding)
+    width: size($mobile-menu-bar-width)
+    height: $mobile-box-height
   @include themed()
     background-color: color($primary-light)
   transition: .55s ease-in-out
